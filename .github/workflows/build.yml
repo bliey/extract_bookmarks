@@ -28,8 +28,11 @@ jobs:
       run: |
         pyinstaller --onefile --windowed extract_bookmarks_gui.py
 
+    - name: List dist directory
+      run: ls -la dist
+
     - name: Upload build artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: macOS-app
-        path: dist/extract_bookmarks_gui
+        path: dist/extract_bookmarks_gui  # 根据实际输出文件名调整
